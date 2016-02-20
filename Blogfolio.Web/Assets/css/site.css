@@ -160,8 +160,8 @@ h1.page-header {
   font-style: italic;
 }
 img.loading {
-  width: 32px;
-  vertical-align: sub;
+  width: 24px;
+  vertical-align: baseline;
   margin-right: 5px;
 }
 /* =============================
@@ -472,6 +472,7 @@ ul.pager li.disabled a:focus {
 }
 .portfolio .project a {
   display: block;
+  cursor: pointer;
 }
 .portfolio .project a img {
   opacity: 1;
