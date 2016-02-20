@@ -1,0 +1,114 @@
+﻿@using Blogfolio.Models.Portfolio
+@using ErenPinaz.Common.Helpers
+@model Blogfolio.Web.Areas.Admin.ViewModels.ProjectEditModel
+
+@{
+    var currentAction = ViewContext.RouteData.Values["action"]
+        .ToString().ToLower();
+
+    ViewBag.Title = (currentAction == "addproject")
+        ? "Add new project"
+        : string.Format("Updating {0}", Model.Name);
+}
+
+<section class="portfolio">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-header">
+                @ViewBag.Title
+                <small>
+                    <a href="@Url.Action("Projects", "Dashboard")">Return to list</a>
+                </small>
+            </h1>
+        </div>
+    </div>
+
+    <div class="row">
+        @using (Html.BeginForm(currentAction, "Dashboard", FormMethod.Post, new {role = "form"}))
+        {
+            <div class="col-main col-md-9">
+                <div class="project-content panel panel-default">
+                    <div class="panel-body">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary()
+
+                        @Html.HiddenFor(m => m.ProjectId)
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Name)
+                            @Html.EditorFor(m => m.Name, new {htmlAttributes = new {data_slug = "source", @class = "form-control", placeholder = "Enter name"}})
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Slug)
+                            @Html.EditorFor(m => m.Slug, new {htmlAttributes = new {data_slug = "field", @class = "form-control", placeholder = "example-url-slug"}})
+                            <p class="form-info">
+                                @Html.DisplayDescriptionFor(m => m.Slug)
+                            </p>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Description)
+                            @Html.EditorFor(m => m.Description, new {htmlAttributes = new {@class = "form-control", data_tinymce = "project"}})
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-aside col-md-3">
+                <div class="project-settings panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Settings</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Image)
+                            <div id="preview">
+                                <a href="#" data-remote="false" data-toggle="modal" data-target="#fileBrowser" class="btn btn-default">
+                                    <i class="appicon-camera"></i>
+                                </a>
+                                <img src="@Model.Image" alt="Service Image"/>
+                                @Html.EditorFor(m => m.Image, new {htmlAttributes = new {@class = "form-control"}})
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Status)
+                            @Html.DropDownListFor(m => m.Status, new SelectList(Enum.GetValues(typeof (ProjectStatus))), new {@class = "form-control"})
+                        </div>
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <button type="submit" class="btn btn-primary">
+                            @(currentAction == "addproject" ? "Add" : "Update")
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Media browser modal -->
+    <div class="modal fade" id="fileBrowser" tabindex="-1" role="dialog" aria-labelledby="fileBrowserLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="fileBrowserLabel"><i class="fa fa-picture-o"></i> Select project image</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div id="files" class="col-md-12">
+                                <img src="/assets/images/ajax-loader.gif" alt="Loading"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" id="confirm">Onayla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

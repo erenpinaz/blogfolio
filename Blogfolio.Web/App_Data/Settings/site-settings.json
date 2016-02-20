@@ -1,0 +1,15 @@
+{
+  "Title": "Blogfolio",
+  "Tagline": "Simple blog & portfolio management",
+  "Heading": "Blogfolio",
+  "LogoPath": "/assets/images/logo.png",
+  "SiteUrl": "http://localhost:65151",
+  "MetaDescription": "Blogfolio, blog and portfolio manager",
+  "MetaKeywords": null,
+  "DisqusShortname": null,
+  "ShareaholicKey": null,
+  "GoogleAnalyticsKey": null,
+  "PageSize": 3,
+  "FeedSize": 5,
+  "ContactEmail": "contact@blogfolio.com"
+}

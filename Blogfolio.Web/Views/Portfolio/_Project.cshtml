@@ -1,0 +1,10 @@
+﻿@model Blogfolio.Web.ViewModels.ProjectItemModel
+
+<div class="project-modal">
+    <div class="project-header">
+        <h1 class="project-title">@Model.Name</h1>
+    </div>
+    <div class="project-content">
+        @Html.Raw(Model.Description)
+    </div>
+</div>

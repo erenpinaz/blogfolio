@@ -1,0 +1,20 @@
+﻿@{
+    var currentController = ViewContext.RouteData.GetRequiredString("controller").ToLowerInvariant();
+}
+
+<h3 class="navbar-header">Menu</h3>
+
+<ul class="navbar-items">
+    <li class="@(currentController == "blog" ? "active" : string.Empty)">
+        <a href="@Url.Action("Index", "Blog")">Blog</a>
+    </li>
+    <li class="@(currentController == "portfolio" ? "active" : string.Empty)">
+        <a href="@Url.Action("Index", "Portfolio")">Portfolio</a>
+    </li>
+    <li class="@(currentController == "about" ? "active" : string.Empty)">
+        <a href="@Url.Action("Index", "About")">About</a>
+    </li>
+    <li class="@(currentController == "contact" ? "active" : string.Empty)">
+        <a href="@Url.Action("Index", "Contact")">Contact</a>
+    </li>
+</ul>

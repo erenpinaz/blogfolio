@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Projects";
+}
+
+<section class="portfolio">
+    <h1 class="page-header">
+        @ViewBag.Title
+        <small>
+            <a href="@Url.Action("AddProject", "Dashboard")">Add new</a>
+        </small>
+    </h1>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div id="projects-table-toolbar">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        Actions <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#" onclick="bulkDeleteProject(event);">
+                                Delete
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <table id="projects-table"
+                   data-toggle="table"
+                   data-url="@Url.Action("PopulateProjects", "Dashboard")"
+                   data-cache="false"
+                   data-height="500"
+                   data-pagination="true"
+                   data-page-size="5"
+                   data-page-list="[5, 10, 20]"
+                   data-search="true"
+                   data-show-columns="true"
+                   data-show-refresh="true"
+                   data-toolbar="#projects-table-toolbar">
+                <thead>
+                <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-field="projectid" data-visible="false">Project ID</th>
+                    <th data-field="name" data-formatter="projectNameFormatter"
+                        data-events="projectNameEvents">
+                        Name
+                    </th>
+                    <th data-field="image" data-formatter="projectImageFormatter"
+                        data-width="64px">
+                        Image
+                    </th>
+                    <th data-field="status">Status</th>
+                    <th data-field="created" data-formatter="jsonDateFormatter">Created</th>
+                    <th data-field="updated" data-visible="false" data-formatter="jsonDateFormatter">Updated</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</section>

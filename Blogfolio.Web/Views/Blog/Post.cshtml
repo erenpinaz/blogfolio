@@ -1,0 +1,85 @@
+﻿@model Blogfolio.Web.ViewModels.PostItemModel
+
+@{
+    var siteSettings = Model.SiteSettings;
+
+    ViewBag.Title = Model.Title;
+}
+
+<section class="blog" itemscope itemtype="http://schema.org/Blog">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+            <h1 class="post-title" itemprop="headline">
+                @Model.Title
+            </h1>
+            <div class="post-meta">
+                <time class="post-time" itemprop="datePublished" datetime="@Model.DateCreated">
+                    <i class="fa fa-clock-o"></i> @Model.DateCreated.ToLongDateString()
+                </time>
+                <span class="post-author" itemprop="author">
+                    <i>by</i> @Model.Author
+                </span>
+                @if (Model.CommentsEnabled && !string.IsNullOrWhiteSpace(siteSettings.DisqusShortname))
+                {
+                    <span class="post-comments-link">
+                        <a href="@Url.Action("Post", new {year = Model.DateCreated.Year, month = Model.DateCreated.Month, slug = Model.Slug})#disqus_thread">
+                            Comments
+                        </a>
+                    </span>
+                }
+            </div>
+        </header>
+        <hr/>
+        <div class="post-content" itemprop="articleBody">
+            @Html.Raw(Model.Content)
+        </div>
+        <hr/>
+        <footer class="post-footer">
+            <ul class="post-categories">
+                @foreach (var category in Model.Categories)
+                {
+                    <li>
+                        <a class="post-category" href="@Url.Action("Category", new {slug = category.Slug})">@category.Name</a>
+                    </li>
+                }
+            </ul>
+            @if (!string.IsNullOrWhiteSpace(siteSettings.ShareaholicKey))
+            {
+                <div class="post-sharing">
+                    <h3>Share</h3>
+                    <div class="shareaholic-canvas" data-app="share_buttons"></div>
+                </div>
+            }
+            @if (Model.CommentsEnabled && !string.IsNullOrWhiteSpace(siteSettings.DisqusShortname))
+            {
+                <div class="post-comments">
+                    <h3>Comments</h3>
+                    <div id="disqus_thread"></div>
+                </div>
+            }
+        </footer>
+    </article>
+</section>
+
+@section Scripts{
+
+    @if (!string.IsNullOrWhiteSpace(siteSettings.DisqusShortname))
+    {
+        <!-- Disqus Post Settings -->
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = '@siteSettings.DisqusShortname';
+            var disqus_identifier = '@Model.Id';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    }
+}

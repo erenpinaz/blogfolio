@@ -1,0 +1,218 @@
+﻿/* ======================================================
+    Filename    : global.less
+    Description : General definitions
+    Author      : Nejdet Eren Pinaz
+   ====================================================== */
+
+/* Colors */
+@color-primary: crimson;
+@color-danger: #ff5f5f;
+@color-warning: #ffe35f;
+
+@white: #fff;
+@black: #000;
+@gray-darker: lighten(@black, 13.5%);
+@gray-dark: lighten(@black, 20%);
+@gray: lighten(@black, 33.5%);
+@gray-light: lighten(@black, 46.7%);
+@gray-lighter: lighten(@black, 93.5%);
+
+/* Screen definitions */
+@xs-min: 480px;
+@sm-min: 768px;
+@md-min: 992px;
+@lg-min: 1200px;
+@xs-max: (@sm-min - 1);
+@sm-max: (@md-min - 1);
+@md-max: (@lg-min - 1);
+
+@phone: ~"only screen and (min-width: @{xs-min})";
+@phone-strict: ~"only screen and (min-width: @{xs-min}) and (max-width: @{xs-max})";
+@tablet: ~"only screen and (min-width: @{sm-min})";
+@tablet-strict: ~"only screen and (min-width: @{sm-min}) and (max-width: @{sm-max})";
+@desktop: ~"only screen and (min-width: @{md-min})";
+@desktop-strict: ~"only screen and (min-width: @{md-min}) and (max-width: @{md-max})";
+@large-desktop: ~"only screen and (min-width: @{lg-min})";
+
+/* Typography */
+@global-font-size: 16px;
+@global-line-height: 1.625;
+@global-font-weight: normal;
+
+/* ===================
+    Global
+   =================== */
+@body-font-family: Georgia, Times, "Times New Roman", serif;
+@body-font-weight: 300;
+@body-font-color: @gray-dark;
+@body-background: url("/assets/images/bg.jpg") no-repeat fixed;
+@body-background-size: cover;
+
+@header-font-family: "Open Sans", Arial, Helvetica, Tahoma, sans-serif;
+@header-font-weight: 700;
+@header-font-style: normal;
+@header-color: inherit;
+@header-line-height: 1.1;
+@header-margin-bottom: 1rem;
+
+@selection-background: lighten(@color-primary, 10%);
+@selection-font-color: @white;
+
+@link-color: @color-primary;
+@link-hover-color: darken(@link-color, 10%);
+@link-transition: all ease 0.1s;
+@link-text-decoration: none;
+
+@separator-border: 1px solid #ddd;
+
+@form-validation-invalid-color: @color-danger;
+@form-element-padding: 8px;
+@form-element-border: 1px solid @gray-light;
+@form-element-border-focus: 1px solid @color-primary;
+@form-element-transition: @link-transition;
+@form-button-background: @link-color;
+@form-button-hover-background: @link-hover-color;
+@form-button-color: @white;
+
+@media @large-desktop {
+    html,
+    body,
+    #wrapper,
+    #content {
+        height: 100%;
+    }
+
+    .content-inner {
+        min-height: ~"calc(100% - 57px)";
+    }
+}
+
+html,
+body {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+body {
+    background: @body-background;
+    background-size: @body-background-size;
+    color: @body-font-color;
+    font-family: @body-font-family;
+    font-size: @global-font-size;
+    font-weight: @global-font-weight;
+    line-height: @global-line-height;
+}
+
+a {
+    color: @link-color;
+    text-decoration: @link-text-decoration;
+    -moz-transition: @link-transition;
+    -o-transition: @link-transition;
+    -webkit-transition: @link-transition;
+    transition: @link-transition;
+
+    &:hover {
+        color: @link-hover-color;
+    }
+}
+
+::selection {
+    background: @selection-background;
+    color: @selection-font-color;
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: @selection-background;
+    color: @selection-font-color;
+    text-shadow: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: @header-font-family;
+    font-weight: @header-font-weight;
+    line-height: @header-line-height;
+    font-style: @header-font-style;
+    color: @header-color;
+    margin-top: 0;
+    margin-bottom: @header-margin-bottom;
+}
+
+form {
+    .form-element-group {
+        margin-bottom: 10px;
+
+        .form-element {
+            background: none;
+            outline: none;
+            display: block;
+            padding: @form-element-padding;
+            border: @form-element-border;
+            width: 100%;
+            -moz-transition: @form-element-transition;
+            -o-transition: @form-element-transition;
+            -webkit-transition: @form-element-transition;
+            transition: @form-element-transition;
+
+            &:focus {
+                border: @form-element-border-focus;
+            }
+        }
+
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        button[type=submit] {
+            border: 0;
+            border-radius: 3px;
+            background-color: @form-button-background;
+            padding: @form-element-padding;
+            color: @form-button-color;
+            -moz-transition: @form-element-transition;
+            -o-transition: @form-element-transition;
+            -webkit-transition: @form-element-transition;
+            transition: @form-element-transition;
+
+            &:hover {
+                background-color: @form-button-hover-background;
+            }
+        }
+    }
+
+    .validation-summary-errors {
+        ul {
+            padding: 8px;
+            list-style: none;
+            margin-bottom: 10px;
+            background-color: @form-validation-invalid-color;
+
+            li {
+                color: @white;
+            }
+        }
+    }
+
+    .field-validation-error {
+        color: @form-validation-invalid-color;
+    }
+
+    .input-validation-error {
+        border-color: @form-validation-invalid-color !important;
+    }
+}

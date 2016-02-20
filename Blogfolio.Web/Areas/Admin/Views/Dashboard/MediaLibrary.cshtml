@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Media Library";
+}
+
+<section class="media-library">
+    <h1 class="page-header">
+        @ViewBag.Title
+    </h1>
+
+    <div class="media-upload panel panel-default">
+        <div class="panel-body">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation">
+                    <a href="#media-uploader" aria-controls="media-uploader" role="tab" data-toggle="tab">
+                        <i class="appicon-upload"></i> Upload
+                    </a>
+                </li>
+                <li role="presentation" class="active">
+                    <a href="#media-browser" aria-controls="media-browser" role="tab" data-toggle="tab">
+                        <i class="appicon-folder-empty"></i> Browse
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane" id="media-uploader" data-url="@Url.Action("UploadMedia", "Dashboard")">
+                    <div id="drop-target">
+                        <section class="upload-ui">
+                            <h3>
+                                Drop your files here
+                                <br/>
+                                <small>or</small>
+                            </h3>
+                            <a id="pick-files" class="btn btn-default" href="javascript:;">Pick Files</a>
+                        </section>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane active" id="media-browser">
+                    <div id="medias-table-toolbar">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                Actions <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#" onclick="bulkDeleteMedia(event);">
+                                        Delete
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="medias-table"
+                           data-toggle="table"
+                           data-url="@Url.Action("PopulateMedias", "Dashboard")"
+                           data-cache="false"
+                           data-height="500"
+                           data-pagination="true"
+                           data-page-size="10"
+                           data-page-list="[10, 20, 50]"
+                           data-search="true"
+                           data-show-columns="true"
+                           data-show-refresh="true"
+                           data-toolbar="#medias-table-toolbar">
+                        <thead>
+                        <tr>
+                            <th data-field="state" data-checkbox="true"></th>
+                            <th data-field="mediaid" data-visible="false">Media ID</th>
+                            <th data-field="name" data-formatter="mediaNameFormatter"
+                                data-events="mediaNameEvents">
+                                Name
+                            </th>
+                            <th data-field="thumbpath" data-width="64px" data-formatter="mediaThumbnailFormatter">Thumbnail</th>
+                            <th data-field="size" data-formatter="mediaSizeFormatter">Size</th>
+                            <th data-field="type">Type</th>
+                            <th data-field="created" data-formatter="jsonDateFormatter">Created</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Categories";
+}
+
+<section class="blog">
+    <h1 class="page-header">
+        @ViewBag.Title
+    </h1>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div id="categories-table-toolbar">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        Actions <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#" onclick="bulkDeleteCategory(event);">
+                                Delete
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <table id="categories-table"
+                   data-toggle="table"
+                   data-url="@Url.Action("PopulateCategories", "Dashboard")"
+                   data-cache="false"
+                   data-height="500"
+                   data-pagination="true"
+                   data-page-size="5"
+                   data-page-list="[5, 10, 20]"
+                   data-search="true"
+                   data-show-columns="true"
+                   data-show-refresh="true"
+                   data-toolbar="#categories-table-toolbar">
+                <thead>
+                <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-field="categoryid" data-visible="false">Category ID</th>
+                    <th data-field="name" data-formatter="categoryNameFormatter"
+                        data-events="categoryNameEvents">
+                        Name
+                    </th>
+                    <th data-field="slug">Slug</th>
+                    <th data-field="totalposts">Total Posts</th>
+                    <th data-field="created" data-formatter="jsonDateFormatter">Created</th>
+                    <th data-field="updated" data-visible="false" data-formatter="jsonDateFormatter">Updated</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</section>

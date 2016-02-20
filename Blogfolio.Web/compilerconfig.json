@@ -1,0 +1,16 @@
+﻿[
+  {
+    "outputFile": "Assets/css/admin.css",
+    "inputFile": "Assets/less/admin/admin.less",
+    "minify": {
+      "enabled": false
+    }
+  },
+  {
+    "outputFile": "Assets/css/site.css",
+    "inputFile": "Assets/less/site/site.less",
+    "minify": {
+      "enabled": false
+    }
+  }
+]

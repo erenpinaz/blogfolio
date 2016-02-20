@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Posts";
+}
+
+<section class="blog">
+    <h1 class="page-header">
+        @ViewBag.Title
+        <small>
+            <a href="@Url.Action("AddPost", "Dashboard")">Add new</a>
+        </small>
+    </h1>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div id="posts-table-toolbar">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        Actions <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#" onclick="bulkDeletePost(event);">
+                                Delete
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <table id="posts-table"
+                   data-toggle="table"
+                   data-url="@Url.Action("PopulatePosts", "Dashboard")"
+                   data-cache="false"
+                   data-height="500"
+                   data-pagination="true"
+                   data-page-size="5"
+                   data-page-list="[5, 10, 20]"
+                   data-search="true"
+                   data-show-columns="true"
+                   data-show-refresh="true"
+                   data-toolbar="#posts-table-toolbar">
+                <thead>
+                <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-field="postid" data-visible="false">Post ID</th>
+                    <th data-field="title" data-formatter="postTitleFormatter"
+                        data-events="postTitleEvents">
+                        Title
+                    </th>
+                    <th data-field="author">Author</th>
+                    <th data-field="summary">Summary</th>
+                    <th data-field="categories" data-formatter="postCategoriesFormatter"
+                        data-width="120px">
+                        Categories
+                    </th>
+                    <th data-field="commentsenabled" data-formatter="postCommentsSectionFormatter">Comments Section</th>
+                    <th data-field="status">Status</th>
+                    <th data-field="created" data-formatter="jsonDateFormatter">Created</th>
+                    <th data-field="updated" data-visible="false" data-formatter="jsonDateFormatter">Updated</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</section>

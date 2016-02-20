@@ -1,0 +1,43 @@
+﻿@model Blogfolio.Web.ViewModels.ProjectListModel
+
+@{
+    ViewBag.Title = "Portfolio";
+}
+
+<section class="portfolio">
+    <h1 class="page-header">
+        @ViewBag.Title
+    </h1>
+
+    @if (!Model.Projects.Any())
+    {
+        <div class="no-content">
+            <div class="vertically-centered">
+                <h2>
+                    There's nothing here yet.
+                </h2>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div id="grid">
+            <div class="grid-sizer"></div>
+
+            @foreach (var project in Model.Projects)
+            {
+                <div class="project grid-item">
+                    <a data-url="@Url.Action("Project", "Portfolio", new {slug = @project.Slug})" data-remodal>
+                        <img class="project-image" src="@project.Image" alt="@project.Name" width="350">
+                    </a>
+                    <h2 class="project-name">@project.Name</h2>
+                </div>
+            }
+        </div>
+
+        <div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false">
+            <button data-remodal-action="close" class="remodal-close"></button>
+            <div class="remodal-content"></div>
+        </div>
+    }
+</section>

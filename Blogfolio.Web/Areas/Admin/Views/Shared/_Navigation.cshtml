@@ -1,0 +1,73 @@
+﻿<!-- Left Navigation -->
+<ul class="nav navbar-nav">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="appicon-pencil"></i> Blog <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="@Url.Action("Posts", "Dashboard")">Posts</a>
+            </li>
+            <li>
+                <a href="@Url.Action("AddPost", "Dashboard")">Add Post</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+                <a href="@Url.Action("Categories", "Dashboard")">Categories</a>
+            </li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="appicon-briefcase"></i> Portfolio <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="@Url.Action("Projects", "Dashboard")">Projects</a>
+            </li>
+            <li>
+                <a href="@Url.Action("AddProject", "Dashboard")">Add Project</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="@Url.Action("MediaLibrary", "Dashboard")">
+            <i class="appicon-art-gallery"></i> Media Library
+        </a>
+    </li>
+</ul>
+
+<!-- Right navigation -->
+<ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="appicon-cog"></i> Settings <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="@Url.Action("General", "Settings")">General</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Social", "Settings")">Social</a>
+            </li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="appicon-user"></i> Hello, @User.Identity.Name<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="@Url.Action("Manage", "Account")">Manage</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm"}))
+                {
+                    @Html.AntiForgeryToken()
+                }
+            </li>
+        </ul>
+    </li>
+</ul>

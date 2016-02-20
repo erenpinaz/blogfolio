@@ -1,0 +1,98 @@
+﻿@using ErenPinaz.Common.Helpers
+@model Blogfolio.Web.Areas.Admin.ViewModels.CreateAdminEditModel
+
+@{
+    ViewBag.Title = "Create admin account";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow"/>
+    <title>@ViewBag.Title - Blogfolio Admin</title>
+
+    <!-- Admin styles -->
+    @Styles.Render("~/assets/css/dash")
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <section class="account">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+                <div class="panel panel-default panel-create-admin">
+                    <div class="panel-heading">
+                        <div class="panel-title">@ViewBag.Title</div>
+                    </div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("CreateAdmin", "Account", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary()
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.UserName, new {@class = "col-sm-3 control-label"})
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(m => m.UserName, new {htmlAttributes = new {@class = "form-control", @readonly = "readonly", placeholder = Html.DisplayNameFor(m => m.UserName)}})
+                                    <p class="form-info">
+                                        @Html.DisplayDescriptionFor(m => m.UserName)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                @Html.LabelFor(m => m.Password, new {@class = "col-sm-3 control-label"})
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(m => m.Password, new {htmlAttributes = new {@class = "form-control", placeholder = Html.DisplayNameFor(m => m.Password)}})
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ConfirmPassword, new {@class = "col-sm-3 control-label"})
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(m => m.ConfirmPassword, new {htmlAttributes = new {@class = "form-control", placeholder = Html.DisplayNameFor(m => m.ConfirmPassword)}})
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Name, new {@class = "col-sm-3 control-label"})
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(m => m.Name, new {htmlAttributes = new {@class = "form-control", placeholder = Html.DisplayNameFor(m => m.Name)}})
+                                    <p class="form-info">
+                                        @Html.DisplayDescriptionFor(m => m.Name)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new {@class = "col-sm-3 control-label"})
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(m => m.Email, new {htmlAttributes = new {@class = "form-control", placeholder = Html.DisplayNameFor(m => m.Email)}})
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Admin scripts -->
+@Scripts.Render("~/assets/js/dash")
+</body>
+</html>

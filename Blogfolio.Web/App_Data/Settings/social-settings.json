@@ -1,0 +1,19 @@
+{
+  "SocialItems": [
+    {
+      "Name": "Facebook",
+      "Url": "http://www.facebook.com/yourid",
+      "Icon": "appicon-facebook"
+    },
+    {
+      "Name": "LinkedIn",
+      "Url": "http://www.linkedin.com/yourid",
+      "Icon": "appicon-linkedin"
+    },
+    {
+      "Name": "GitHub",
+      "Url": "http://www.github.com/yourid",
+      "Icon": "appicon-github-circled"
+    }
+  ]
+}
