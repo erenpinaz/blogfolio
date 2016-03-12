@@ -2,6 +2,7 @@ using System;
 using Blogfolio.Data;
 using Blogfolio.Models;
 using Blogfolio.Web.Areas.Admin.Identity;
+using ErenPinaz.Common.Services.Captcha;
 using ErenPinaz.Common.Services.Email;
 using ErenPinaz.Common.Services.Settings;
 using Microsoft.AspNet.Identity;
@@ -54,6 +55,7 @@ namespace Blogfolio.Web
             container.RegisterType<IRoleStore<IdentityRole, Guid>, RoleStore>();
 
             container.RegisterType<IEmailService, EmailService>();
+            container.RegisterType<ICaptchaService, ReCaptchaService>();
             container.RegisterType<ISettingsService, JsonSettingsService>();
         }
     }
