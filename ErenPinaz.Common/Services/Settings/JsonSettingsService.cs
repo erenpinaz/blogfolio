@@ -6,15 +6,15 @@ using Newtonsoft.Json;
 namespace ErenPinaz.Common.Services.Settings
 {
     /// <summary>
-    /// Json IO implementation of <see cref="ISettingsService" />
+    ///     Json IO implementation of <see cref="ISettingsService" />
     /// </summary>
     public class JsonSettingsService : ISettingsService
     {
         public string SettingsFilePath => HttpContext.Current.Server.MapPath("~/App_Data/Settings/");
 
         /// <summary>
-        /// De-serializes and returns the content of the
-        /// specified json settings file
+        ///     De-serializes and returns the content of the
+        ///     specified json settings file
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="fileName"></param>
@@ -33,8 +33,8 @@ namespace ErenPinaz.Common.Services.Settings
         }
 
         /// <summary>
-        /// Serializes and writes given values to specified
-        /// json settings file
+        ///     Serializes and writes given values to specified
+        ///     json settings file
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="settings"></param>

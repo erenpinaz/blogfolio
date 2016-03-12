@@ -834,7 +834,7 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         #region Helpers
 
         /// <summary>
-        /// Maps post entity to post edit model
+        ///     Maps post entity to post edit model
         /// </summary>
         /// <param name="entity"></param>
         /// <returns>A <see cref="PostEditModel" /></returns>
@@ -858,7 +858,7 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Maps post edit model to post entity
+        ///     Maps post edit model to post entity
         /// </summary>
         /// <param name="entity"></param>
         /// <param name="model"></param>
@@ -881,7 +881,7 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Maps category entity to category edit model
+        ///     Maps category entity to category edit model
         /// </summary>
         /// <param name="entity"></param>
         /// <returns>A <see cref="CategoryEditModel" /></returns>
@@ -901,7 +901,7 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Maps category edit model to category entity
+        ///     Maps category edit model to category entity
         /// </summary>
         /// <param name="entity"></param>
         /// <param name="model"></param>
@@ -920,7 +920,7 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Maps project entity to project edit model
+        ///     Maps project entity to project edit model
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -943,7 +943,7 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Maps project edit model to project entity
+        ///     Maps project edit model to project entity
         /// </summary>
         /// <param name="entity"></param>
         /// <param name="model"></param>
@@ -965,7 +965,7 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Checks if unique post slug field is valid
+        ///     Checks if unique post slug field is valid
         /// </summary>
         /// <param name="slug"></param>
         /// <param name="postId"></param>
@@ -982,7 +982,7 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Checks if unique category slug field is valid
+        ///     Checks if unique category slug field is valid
         /// </summary>
         /// <param name="slug"></param>
         /// <param name="categoryId"></param>
@@ -999,7 +999,7 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Checks if unique project slug field is valid
+        ///     Checks if unique project slug field is valid
         /// </summary>
         /// <param name="slug"></param>
         /// <param name="projectId"></param>
@@ -1016,7 +1016,7 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Checks and creates server directories
+        ///     Checks and creates server directories
         /// </summary>
         /// <param name="virtualPaths"></param>
         private static void CheckCreateDirectories(IEnumerable<string> virtualPaths)
@@ -1031,11 +1031,11 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Asynchronously saves given file to disk
+        ///     Asynchronously saves given file to disk
         /// </summary>
         /// <param name="file"></param>
         /// <param name="media"></param>
-        /// <returns>A <see cref="bool"/></returns>
+        /// <returns>A <see cref="bool" /></returns>
         private async Task<bool> SaveFile(HttpPostedFileBase file, Media media)
         {
             try
@@ -1083,16 +1083,15 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Creates a resized bitmap from the given stream. Resizes the image by 
-        /// creating an aspect ratio safe image. Image is sized to the larger size of width
-        /// height and then smaller size is adjusted by aspect ratio.
-        /// 
-        /// Credits: https://github.com/RickStrahl/Westwind.plUploadHandler
+        ///     Creates a resized bitmap from the given stream. Resizes the image by
+        ///     creating an aspect ratio safe image. Image is sized to the larger size of width
+        ///     height and then smaller size is adjusted by aspect ratio.
+        ///     Credits: https://github.com/RickStrahl/Westwind.plUploadHandler
         /// </summary>
         /// <param name="fileStream"></param>
         /// <param name="outputFilename"></param>
         /// <param name="height"></param>
-        /// <returns>A <see cref="bool"/></returns>
+        /// <returns>A <see cref="bool" /></returns>
         private static bool SaveImage(Stream fileStream, string outputFilename, int height)
         {
             Bitmap bmp = null;
@@ -1140,10 +1139,10 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Generates a unique name for a file
+        ///     Generates a unique name for a file
         /// </summary>
         /// <param name="fileName"></param>
-        /// <returns>A <see cref="string"/></returns>
+        /// <returns>A <see cref="string" /></returns>
         private static string GenerateUniqueFileName(string fileName)
         {
             return string.Format("UL_{0}{1}", Guid.NewGuid().ToString("N").ToUpper(),
@@ -1151,10 +1150,10 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Asynchronously deletes a directory from the disk
+        ///     Asynchronously deletes a directory from the disk
         /// </summary>
         /// <param name="directory"></param>
-        /// <returns>A <see cref="bool"/></returns>
+        /// <returns>A <see cref="bool" /></returns>
         private async Task<bool> DeleteDirectoryFromDiskAsync(string directory)
         {
             try
@@ -1177,7 +1176,7 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Asynchronously deletes a file from the disk
+        ///     Asynchronously deletes a file from the disk
         /// </summary>
         /// <param name="file"></param>
         /// <returns>A <see cref="bool" /></returns>
@@ -1204,8 +1203,8 @@ namespace Blogfolio.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Returns thumbnail path for an image
-        /// Returns default thumbnail paths for known mime types
+        ///     Returns thumbnail path for an image
+        ///     Returns default thumbnail paths for known mime types
         /// </summary>
         /// <param name="mimeType"></param>
         /// <param name="fileName"></param>

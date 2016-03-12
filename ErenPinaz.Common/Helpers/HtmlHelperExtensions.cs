@@ -7,7 +7,7 @@ namespace ErenPinaz.Common.Helpers
     public static class HtmlHelperExtensions
     {
         /// <summary>
-        /// Gets the display description for model
+        ///     Gets the display description for model
         /// </summary>
         public static MvcHtmlString DisplayDescriptionFor<TModel, TValue>(this HtmlHelper<TModel> self,
             Expression<Func<TModel, TValue>> expression)

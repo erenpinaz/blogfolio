@@ -6,7 +6,7 @@ namespace Blogfolio.Data.Configuration.Identity
     internal class UserConfiguration : EntityTypeConfiguration<User>
     {
         /// <summary>
-        /// Fluent API configuration for the User table.
+        ///     Fluent API configuration for the User table.
         /// </summary>
         internal UserConfiguration()
         {

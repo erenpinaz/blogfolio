@@ -5,7 +5,7 @@
 namespace ErenPinaz.Common.SEO.Sitemap
 {
     /// <summary>
-    /// Enum for change frequencies
+    ///     Enum for change frequencies
     /// </summary>
     public enum SitemapChangeFrequency
     {
@@ -21,7 +21,7 @@ namespace ErenPinaz.Common.SEO.Sitemap
     public class SitemapItem
     {
         /// <summary>
-        /// Creates a new instance of <see cref="SitemapItem" />
+        ///     Creates a new instance of <see cref="SitemapItem" />
         /// </summary>
         /// <param name="url">URL of the page</param>
         /// <param name="lastModified">The date of last modification of the file</param>
@@ -40,22 +40,22 @@ namespace ErenPinaz.Common.SEO.Sitemap
         }
 
         /// <summary>
-        /// URL of the page
+        ///     URL of the page
         /// </summary>
         public string Url { get; protected set; }
 
         /// <summary>
-        /// The date of last modification of the file
+        ///     The date of last modification of the file
         /// </summary>
         public DateTime? LastModified { get; protected set; }
 
         /// <summary>
-        /// How frequently the page is likely to change
+        ///     How frequently the page is likely to change
         /// </summary>
         public SitemapChangeFrequency? ChangeFrequency { get; protected set; }
 
         /// <summary>
-        /// The priority of this URL relative to other URLs on your site. Valid values range from 0.0 to 1.0
+        ///     The priority of this URL relative to other URLs on your site. Valid values range from 0.0 to 1.0
         /// </summary>
         public double? Priority { get; protected set; }
     }

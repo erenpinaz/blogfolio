@@ -8,7 +8,7 @@ namespace Blogfolio.Data.Configuration.Blog
     internal class PostConfiguration : EntityTypeConfiguration<Post>
     {
         /// <summary>
-        /// Fluent API configuration for the Post table.
+        ///     Fluent API configuration for the Post table.
         /// </summary>
         internal PostConfiguration()
         {

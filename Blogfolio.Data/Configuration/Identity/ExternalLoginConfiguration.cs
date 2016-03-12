@@ -6,7 +6,7 @@ namespace Blogfolio.Data.Configuration.Identity
     internal class ExternalLoginConfiguration : EntityTypeConfiguration<ExternalLogin>
     {
         /// <summary>
-        /// Fluent API configuration for the ExternalLogin table.
+        ///     Fluent API configuration for the ExternalLogin table.
         /// </summary>
         internal ExternalLoginConfiguration()
         {

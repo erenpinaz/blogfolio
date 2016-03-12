@@ -8,12 +8,12 @@ using Blogfolio.Models.Repositories.Identity;
 namespace Blogfolio.Data.Repositories.Identity
 {
     /// <summary>
-    /// Entity framework implementation of <see cref="IRoleRepository" />
+    ///     Entity framework implementation of <see cref="IRoleRepository" />
     /// </summary>
     internal class RoleRepository : Repository<Role>, IRoleRepository
     {
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         /// <param name="context"></param>
         internal RoleRepository(BlogfolioContext context)
@@ -22,7 +22,7 @@ namespace Blogfolio.Data.Repositories.Identity
         }
 
         /// <summary>
-        /// Returns role
+        ///     Returns role
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns>A <see cref="Role" /></returns>
@@ -32,7 +32,7 @@ namespace Blogfolio.Data.Repositories.Identity
         }
 
         /// <summary>
-        /// Asynchronously returns role
+        ///     Asynchronously returns role
         /// </summary>
         /// <param name="roleName"></param>
         /// <returns>A <see cref="Role" /></returns>
@@ -42,7 +42,7 @@ namespace Blogfolio.Data.Repositories.Identity
         }
 
         /// <summary>
-        /// Asynchronously returns role with cancellation support
+        ///     Asynchronously returns role with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <param name="roleName"></param>

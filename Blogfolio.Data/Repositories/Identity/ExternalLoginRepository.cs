@@ -8,12 +8,12 @@ using Blogfolio.Models.Repositories.Identity;
 namespace Blogfolio.Data.Repositories.Identity
 {
     /// <summary>
-    /// Entity framework implementation of <see cref="IExternalLoginRepository" />
+    ///     Entity framework implementation of <see cref="IExternalLoginRepository" />
     /// </summary>
     internal class ExternalLoginRepository : Repository<ExternalLogin>, IExternalLoginRepository
     {
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         /// <param name="context"></param>
         internal ExternalLoginRepository(BlogfolioContext context)
@@ -22,7 +22,7 @@ namespace Blogfolio.Data.Repositories.Identity
         }
 
         /// <summary>
-        /// Returns external login
+        ///     Returns external login
         /// </summary>
         /// <param name="loginProvider"></param>
         /// <param name="providerKey"></param>
@@ -33,7 +33,7 @@ namespace Blogfolio.Data.Repositories.Identity
         }
 
         /// <summary>
-        /// Asynchronously returns external login
+        ///     Asynchronously returns external login
         /// </summary>
         /// <param name="loginProvider"></param>
         /// <param name="providerKey"></param>
@@ -44,7 +44,7 @@ namespace Blogfolio.Data.Repositories.Identity
         }
 
         /// <summary>
-        /// Asynchronously returns external login with cancellation support
+        ///     Asynchronously returns external login with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <param name="loginProvider"></param>

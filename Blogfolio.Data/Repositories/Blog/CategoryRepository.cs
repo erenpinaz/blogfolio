@@ -9,12 +9,12 @@ using Blogfolio.Models.Repositories.Blog;
 namespace Blogfolio.Data.Repositories.Blog
 {
     /// <summary>
-    /// Entity framework implementation of <see cref="ICategoryRepository" />
+    ///     Entity framework implementation of <see cref="ICategoryRepository" />
     /// </summary>
     internal class CategoryRepository : Repository<Category>, ICategoryRepository
     {
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         /// <param name="context"></param>
         internal CategoryRepository(BlogfolioContext context)
@@ -23,7 +23,7 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Returns a list of categories containing published posts
+        ///     Returns a list of categories containing published posts
         /// </summary>
         /// <returns> List of <see cref="Category" /> that containing at least one published post</returns>
         public List<Category> GetCategories()
@@ -36,7 +36,7 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Asynchronously returns a list of categories containing published  posts
+        ///     Asynchronously returns a list of categories containing published  posts
         /// </summary>
         /// <returns> List of <see cref="Category" /> that containing at least one published post</returns>
         public Task<List<Category>> GetCategoriesAsync()
@@ -49,8 +49,8 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Asynchronously returns a list of categories containing published  posts
-        /// with cancellation support
+        ///     Asynchronously returns a list of categories containing published  posts
+        ///     with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns>List of <see cref="Category" /> that containing at least one published post</returns>
@@ -64,7 +64,7 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Returns single category containing published posts
+        ///     Returns single category containing published posts
         /// </summary>
         /// <param name="slug"></param>
         /// <returns>A <see cref="Category" /> that containing at least one published post</returns>
@@ -77,7 +77,7 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Asynchronously returns single category containing published posts
+        ///     Asynchronously returns single category containing published posts
         /// </summary>
         /// <param name="slug"></param>
         /// <returns>A <see cref="Category" /> that containing at least one published post</returns>
@@ -90,8 +90,8 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Asynchronously Returns single category containing published posts
-        /// with cancellation support
+        ///     Asynchronously Returns single category containing published posts
+        ///     with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <param name="slug"></param>

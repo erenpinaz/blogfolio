@@ -9,12 +9,12 @@ using Blogfolio.Models.Repositories.Blog;
 namespace Blogfolio.Data.Repositories.Blog
 {
     /// <summary>
-    /// Entity framework implementation of <see cref="ICommentRepository" />
+    ///     Entity framework implementation of <see cref="ICommentRepository" />
     /// </summary>
     internal class CommentRepository : Repository<Comment>, ICommentRepository
     {
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         /// <param name="context"></param>
         internal CommentRepository(BlogfolioContext context)
@@ -23,7 +23,7 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Returns a list of approved comments
+        ///     Returns a list of approved comments
         /// </summary>
         /// <param name="count"></param>
         /// <returns>List of approved <see cref="Comment" /></returns>
@@ -38,7 +38,7 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Asynchronously returns a list of approved comments
+        ///     Asynchronously returns a list of approved comments
         /// </summary>
         /// <param name="count"></param>
         /// <returns>List of approved <see cref="Comment" /></returns>
@@ -53,8 +53,8 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Asynchronously returns a list of approved comments
-        /// with cancellation support
+        ///     Asynchronously returns a list of approved comments
+        ///     with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <param name="count"></param>

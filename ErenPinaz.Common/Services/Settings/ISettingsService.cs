@@ -1,13 +1,13 @@
 ﻿namespace ErenPinaz.Common.Services.Settings
 {
     /// <summary>
-    /// Interface for storing managing settings
+    ///     Interface for storing managing settings
     /// </summary>
     public interface ISettingsService
     {
         /// <summary>
-        /// De-serializes and returns the content of the
-        /// specified json settings file
+        ///     De-serializes and returns the content of the
+        ///     specified json settings file
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="fileName"></param>
@@ -15,8 +15,8 @@
         TEntity GetByName<TEntity>(string fileName) where TEntity : class;
 
         /// <summary>
-        /// Serializes and writes given values to specified
-        /// json settings file
+        ///     Serializes and writes given values to specified
+        ///     json settings file
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="setting"></param>

@@ -8,7 +8,7 @@ namespace Blogfolio.Data.Configuration.Blog
     internal class CategoryConfiguration : EntityTypeConfiguration<Category>
     {
         /// <summary>
-        /// Fluent API configuration for the Category table.
+        ///     Fluent API configuration for the Category table.
         /// </summary>
         internal CategoryConfiguration()
         {

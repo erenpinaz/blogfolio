@@ -6,7 +6,7 @@ namespace Blogfolio.Data.Configuration.Blog
     internal class CommentConfiguration : EntityTypeConfiguration<Comment>
     {
         /// <summary>
-        /// Fluent API configuration for the Comment table.
+        ///     Fluent API configuration for the Comment table.
         /// </summary>
         internal CommentConfiguration()
         {

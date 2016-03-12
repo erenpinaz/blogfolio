@@ -8,12 +8,12 @@ using Blogfolio.Models.Repositories.Identity;
 namespace Blogfolio.Data.Repositories.Identity
 {
     /// <summary>
-    /// Entity framework implementation of <see cref="IUserRepository" />
+    ///     Entity framework implementation of <see cref="IUserRepository" />
     /// </summary>
     internal class UserRepository : Repository<User>, IUserRepository
     {
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         /// <param name="context"></param>
         internal UserRepository(BlogfolioContext context)
@@ -22,7 +22,7 @@ namespace Blogfolio.Data.Repositories.Identity
         }
 
         /// <summary>
-        /// Returns user
+        ///     Returns user
         /// </summary>
         /// <param name="username"></param>
         /// <returns>A <see cref="User" /></returns>
@@ -32,7 +32,7 @@ namespace Blogfolio.Data.Repositories.Identity
         }
 
         /// <summary>
-        /// Asynchronously returns user
+        ///     Asynchronously returns user
         /// </summary>
         /// <param name="username"></param>
         /// <returns>A <see cref="User" /></returns>
@@ -42,7 +42,7 @@ namespace Blogfolio.Data.Repositories.Identity
         }
 
         /// <summary>
-        /// Asynchronously returns user with cancellation support
+        ///     Asynchronously returns user with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <param name="username"></param>

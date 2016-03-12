@@ -8,7 +8,7 @@ namespace Blogfolio.Data.Configuration.Portfolio
     internal class ProjectConfiguration : EntityTypeConfiguration<Project>
     {
         /// <summary>
-        /// Fluent API configuration for the Project table.
+        ///     Fluent API configuration for the Project table.
         /// </summary>
         internal ProjectConfiguration()
         {

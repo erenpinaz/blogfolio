@@ -9,12 +9,12 @@ using Blogfolio.Models.Repositories.Blog;
 namespace Blogfolio.Data.Repositories.Blog
 {
     /// <summary>
-    /// Entity framework implementation of <see cref="IPostRepository" />
+    ///     Entity framework implementation of <see cref="IPostRepository" />
     /// </summary>
     internal class PostRepository : Repository<Post>, IPostRepository
     {
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         /// <param name="context"></param>
         internal PostRepository(BlogfolioContext context)
@@ -23,7 +23,7 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Returns a list of published posts
+        ///     Returns a list of published posts
         /// </summary>
         /// <param name="count"></param>
         /// <returns>List of published <see cref="Post" /></returns>
@@ -38,7 +38,7 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Asynchronously returns a list of published posts
+        ///     Asynchronously returns a list of published posts
         /// </summary>
         /// <param name="count"></param>
         /// <returns>List of published <see cref="Post" /></returns>
@@ -53,8 +53,8 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Asynchronously returns a list of published posts
-        /// with cancellation support
+        ///     Asynchronously returns a list of published posts
+        ///     with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <param name="count"></param>
@@ -70,7 +70,7 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Returns single published post
+        ///     Returns single published post
         /// </summary>
         /// <param name="year"></param>
         /// <param name="month"></param>
@@ -86,7 +86,7 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Asynchronously returns single published post
+        ///     Asynchronously returns single published post
         /// </summary>
         /// <param name="year"></param>
         /// <param name="month"></param>
@@ -103,7 +103,7 @@ namespace Blogfolio.Data.Repositories.Blog
         }
 
         /// <summary>
-        /// Asynchronously returns single published post with cancellation support
+        ///     Asynchronously returns single published post with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <param name="year"></param>

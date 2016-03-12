@@ -6,7 +6,7 @@ namespace Blogfolio.Data.Configuration.Library
     internal class MediaConfiguration : EntityTypeConfiguration<Media>
     {
         /// <summary>
-        /// Fluent API configuration for the Media table.
+        ///     Fluent API configuration for the Media table.
         /// </summary>
         internal MediaConfiguration()
         {

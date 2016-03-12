@@ -9,7 +9,7 @@ using Blogfolio.Models.Repositories.Portfolio;
 namespace Blogfolio.Models
 {
     /// <summary>
-    /// Unit of work interface
+    ///     Unit of work interface
     /// </summary>
     public interface IUnitOfWork : IDisposable
     {
@@ -36,20 +36,20 @@ namespace Blogfolio.Models
         #region Methods
 
         /// <summary>
-        /// Saves changes that are made in the current context
+        ///     Saves changes that are made in the current context
         /// </summary>
         /// <returns>Number of rows affected as an <see cref="int" /></returns>
         int SaveChanges();
 
         /// <summary>
-        /// Asynchronously saves changes that are made in the current context
+        ///     Asynchronously saves changes that are made in the current context
         /// </summary>
         /// <returns>Number of rows affected as an <see cref="int" /></returns>
         Task<int> SaveChangesAsync();
 
         /// <summary>
-        /// Asynchronously saves changes that are made in the current context
-        /// with cancellation support
+        ///     Asynchronously saves changes that are made in the current context
+        ///     with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns>Number of rows affected as an <see cref="int" /></returns>

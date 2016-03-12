@@ -13,7 +13,7 @@ namespace ErenPinaz.Common.SEO.Sitemap
         private static readonly XNamespace Xsi = "http://www.w3.org/2001/XMLSchema-instance";
 
         /// <summary>
-        /// Generates xml sitemap file
+        ///     Generates xml sitemap file
         /// </summary>
         /// <param name="items">A collection of <see cref="SitemapItem" /></param>
         /// <returns>An <see cref="XDocument" /></returns>
@@ -35,7 +35,7 @@ namespace ErenPinaz.Common.SEO.Sitemap
         }
 
         /// <summary>
-        /// Creates an xml sitemap item
+        ///     Creates an xml sitemap item
         /// </summary>
         /// <param name="item">A <see cref="SitemapItem" /></param>
         /// <returns>An <see cref="XElement" /></returns>
