@@ -120,6 +120,9 @@
     <Compile Include="SEO\Sitemap\SitemapItem.cs" />
     <Compile Include="Services\Cache\ICacheService.cs" />
     <Compile Include="Services\Cache\InMemoryCache.cs" />
+    <Compile Include="Services\Captcha\ICaptchaService.cs" />
+    <Compile Include="Services\Captcha\ReCaptchaResponse.cs" />
+    <Compile Include="Services\Captcha\ReCaptchaService.cs" />
     <Compile Include="Services\Email\EmailService.cs" />
     <Compile Include="Services\Email\IEmailService.cs" />
     <Compile Include="Services\Settings\ISettingsService.cs" />
