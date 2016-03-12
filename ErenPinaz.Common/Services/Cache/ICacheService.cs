@@ -7,14 +7,12 @@ namespace ErenPinaz.Common.Services.Cache
     public interface ICacheService
     {
         /// <summary>
-        ///     Creates or retrieves cache item
+        /// Creates or retrieves cache item
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="cacheKey"></param>
         /// <param name="getItemCallback"></param>
-        /// <returns>
-        ///     <see cref="T" />
-        /// </returns>
+        /// <returns><see cref="T"/></returns>
         T GetOrSet<T>(string cacheKey, Func<T> getItemCallback) where T : class;
     }
 }

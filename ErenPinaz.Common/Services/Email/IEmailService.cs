@@ -8,13 +8,13 @@ namespace ErenPinaz.Common.Services.Email
     public interface IEmailService
     {
         /// <summary>
-        ///     Sends a <see cref="MailMessage" />
+        /// Sends a <see cref="MailMessage" />
         /// </summary>
         /// <param name="email"></param>
         void Send(MailMessage email);
 
         /// <summary>
-        ///     Asynchronously sends a <see cref="MailMessage" />
+        /// Asynchronously sends a <see cref="MailMessage" />
         /// </summary>
         /// <param name="email"></param>
         /// <returns>A <see cref="Task" /></returns>

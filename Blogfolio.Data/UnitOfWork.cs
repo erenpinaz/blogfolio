@@ -14,14 +14,14 @@ using Blogfolio.Models.Repositories.Portfolio;
 namespace Blogfolio.Data
 {
     /// <summary>
-    ///     Entity framework implementation of <see cref="IUnitOfWork" />
+    /// Entity framework implementation of <see cref="IUnitOfWork" />
     /// </summary>
     public class UnitOfWork : IUnitOfWork
     {
         #region Constructors
 
         /// <summary>
-        ///     Constructor
+        /// Constructor
         /// </summary>
         /// <param name="nameOrConnectionString"></param>
         public UnitOfWork(string nameOrConnectionString)
@@ -36,8 +36,8 @@ namespace Blogfolio.Data
         private bool _disposed = false;
 
         /// <summary>
-        ///     Disposes all the resources used by the <see cref="UnitOfWork" />
-        ///     This will be called by DI containers lifetime manager
+        /// Disposes all the resources used by the <see cref="UnitOfWork" />
+        /// This will be called by DI containers lifetime manager
         /// </summary>
         protected virtual void Dispose(bool disposing)
         {
@@ -126,7 +126,7 @@ namespace Blogfolio.Data
             => _mediaRepository ?? (_mediaRepository = new MediaRepository(_context));
 
         /// <summary>
-        ///     Saves changes that are made in the current context
+        /// Saves changes that are made in the current context
         /// </summary>
         /// <returns>Number of rows affected as an <see cref="int" /></returns>
         public int SaveChanges()
@@ -135,7 +135,7 @@ namespace Blogfolio.Data
         }
 
         /// <summary>
-        ///     Asynchronously saves changes that are made in the current context
+        /// Asynchronously saves changes that are made in the current context
         /// </summary>
         /// <returns>Number of rows affected as an <see cref="int" /></returns>
         public Task<int> SaveChangesAsync()
@@ -144,8 +144,8 @@ namespace Blogfolio.Data
         }
 
         /// <summary>
-        ///     Asynchronously saves changes that are made in the current context
-        ///     with cancellation support
+        /// Asynchronously saves changes that are made in the current context
+        /// with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns>Number of rows affected as an <see cref="int" /></returns>

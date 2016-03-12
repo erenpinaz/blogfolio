@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 namespace ErenPinaz.Common.Services.Email
 {
     /// <summary>
-    ///     Implementation that uses <see cref="SmtpClient" />
+    /// Implementation that uses <see cref="SmtpClient" />
     /// </summary>
     public class EmailService : IEmailService
     {
         /// <summary>
-        ///     Sends a <see cref="MailMessage" />
+        /// Sends a <see cref="MailMessage" />
         /// </summary>
         /// <param name="email"></param>
         public void Send(MailMessage email)
@@ -24,7 +24,7 @@ namespace ErenPinaz.Common.Services.Email
         }
 
         /// <summary>
-        ///     Asynchronously sends a <see cref="MailMessage" />
+        /// Asynchronously sends a <see cref="MailMessage" />
         /// </summary>
         /// <param name="email"></param>
         /// <returns>A <see cref="Task" /></returns>

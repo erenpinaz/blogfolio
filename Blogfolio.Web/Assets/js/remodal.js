@@ -8,18 +8,18 @@
  */
 
 !(function (root, factory) {
-    if (typeof define === "function" && define.amd) {
-        define(["jquery"], function ($) {
+    if (typeof define === 'function' && define.amd) {
+        define(['jquery'], function ($) {
             return factory(root, $);
         });
-    } else if (typeof exports === "object") {
-        factory(root, require("jquery"));
+    } else if (typeof exports === 'object') {
+        factory(root, require('jquery'));
     } else {
         factory(root, root.jQuery || root.Zepto);
     }
 })(this, function (global, $) {
 
-    "use strict";
+    'use strict';
 
     /**
      * Name of the plugin
@@ -27,7 +27,7 @@
      * @const
      * @type {String}
      */
-    var PLUGIN_NAME = "remodal";
+    var PLUGIN_NAME = 'remodal';
 
     /**
      * Namespace for CSS and events
@@ -44,13 +44,13 @@
      * @type {String}
      */
     var ANIMATIONSTART_EVENTS = $.map(
-      ["animationstart", "webkitAnimationStart", "MSAnimationStart", "oAnimationStart"],
+      ['animationstart', 'webkitAnimationStart', 'MSAnimationStart', 'oAnimationStart'],
 
       function (eventName) {
-          return eventName + "." + NAMESPACE;
+          return eventName + '.' + NAMESPACE;
       }
 
-    ).join(" ");
+    ).join(' ');
 
     /**
      * Animationend event with vendor prefixes
@@ -59,13 +59,13 @@
      * @type {String}
      */
     var ANIMATIONEND_EVENTS = $.map(
-      ["animationend", "webkitAnimationEnd", "MSAnimationEnd", "oAnimationEnd"],
+      ['animationend', 'webkitAnimationEnd', 'MSAnimationEnd', 'oAnimationEnd'],
 
       function (eventName) {
-          return eventName + "." + NAMESPACE;
+          return eventName + '.' + NAMESPACE;
       }
 
-    ).join(" ");
+    ).join(' ');
 
     /**
      * Default settings
@@ -79,7 +79,7 @@
         closeOnCancel: true,
         closeOnEscape: true,
         closeOnOutsideClick: true,
-        modifier: ""
+        modifier: ''
     }, global.REMODAL_GLOBALS && global.REMODAL_GLOBALS.DEFAULTS);
 
     /**
@@ -89,10 +89,10 @@
      * @enum {String}
      */
     var STATES = {
-        CLOSING: "closing",
-        CLOSED: "closed",
-        OPENING: "opening",
-        OPENED: "opened"
+        CLOSING: 'closing',
+        CLOSED: 'closed',
+        OPENING: 'opening',
+        OPENED: 'opened'
     };
 
     /**
@@ -102,8 +102,8 @@
      * @enum {String}
      */
     var STATE_CHANGE_REASONS = {
-        CONFIRMATION: "confirmation",
-        CANCELLATION: "cancellation"
+        CONFIRMATION: 'confirmation',
+        CANCELLATION: 'cancellation'
     };
 
     /**
@@ -113,7 +113,7 @@
      * @type {Boolean}
      */
     var IS_ANIMATION = (function () {
-        var style = document.createElement("div").style;
+        var style = document.createElement('div').style;
 
         return style.animationName !== undefined ||
           style.WebkitAnimationName !== undefined ||
@@ -153,44 +153,44 @@
     function getAnimationDuration($elem) {
         if (
           IS_ANIMATION &&
-          $elem.css("animation-name") === "none" &&
-          $elem.css("-webkit-animation-name") === "none" &&
-          $elem.css("-moz-animation-name") === "none" &&
-          $elem.css("-o-animation-name") === "none" &&
-          $elem.css("-ms-animation-name") === "none"
+          $elem.css('animation-name') === 'none' &&
+          $elem.css('-webkit-animation-name') === 'none' &&
+          $elem.css('-moz-animation-name') === 'none' &&
+          $elem.css('-o-animation-name') === 'none' &&
+          $elem.css('-ms-animation-name') === 'none'
         ) {
             return 0;
         }
 
-        var duration = $elem.css("animation-duration") ||
-          $elem.css("-webkit-animation-duration") ||
-          $elem.css("-moz-animation-duration") ||
-          $elem.css("-o-animation-duration") ||
-          $elem.css("-ms-animation-duration") ||
-          "0s";
+        var duration = $elem.css('animation-duration') ||
+          $elem.css('-webkit-animation-duration') ||
+          $elem.css('-moz-animation-duration') ||
+          $elem.css('-o-animation-duration') ||
+          $elem.css('-ms-animation-duration') ||
+          '0s';
 
-        var delay = $elem.css("animation-delay") ||
-          $elem.css("-webkit-animation-delay") ||
-          $elem.css("-moz-animation-delay") ||
-          $elem.css("-o-animation-delay") ||
-          $elem.css("-ms-animation-delay") ||
-          "0s";
+        var delay = $elem.css('animation-delay') ||
+          $elem.css('-webkit-animation-delay') ||
+          $elem.css('-moz-animation-delay') ||
+          $elem.css('-o-animation-delay') ||
+          $elem.css('-ms-animation-delay') ||
+          '0s';
 
-        var iterationCount = $elem.css("animation-iteration-count") ||
-          $elem.css("-webkit-animation-iteration-count") ||
-          $elem.css("-moz-animation-iteration-count") ||
-          $elem.css("-o-animation-iteration-count") ||
-          $elem.css("-ms-animation-iteration-count") ||
-          "1";
+        var iterationCount = $elem.css('animation-iteration-count') ||
+          $elem.css('-webkit-animation-iteration-count') ||
+          $elem.css('-moz-animation-iteration-count') ||
+          $elem.css('-o-animation-iteration-count') ||
+          $elem.css('-ms-animation-iteration-count') ||
+          '1';
 
         var max;
         var len;
         var num;
         var i;
 
-        duration = duration.split(", ");
-        delay = delay.split(", ");
-        iterationCount = iterationCount.split(", ");
+        duration = duration.split(', ');
+        delay = delay.split(', ');
+        iterationCount = iterationCount.split(', ');
 
         // The 'duration' size is the same as the 'delay' size
         for (i = 0, len = duration.length, max = Number.NEGATIVE_INFINITY; i < len; i++) {
@@ -214,22 +214,22 @@
             return 0;
         }
 
-        var outer = document.createElement("div");
-        var inner = document.createElement("div");
+        var outer = document.createElement('div');
+        var inner = document.createElement('div');
         var widthNoScroll;
         var widthWithScroll;
 
-        outer.style.visibility = "hidden";
-        outer.style.width = "100px";
+        outer.style.visibility = 'hidden';
+        outer.style.width = '100px';
         document.body.appendChild(outer);
 
         widthNoScroll = outer.offsetWidth;
 
         // Force scrollbars
-        outer.style.overflow = "scroll";
+        outer.style.overflow = 'scroll';
 
         // Add inner div
-        inner.style.width = "100%";
+        inner.style.width = '100%';
         outer.appendChild(inner);
 
         widthWithScroll = inner.offsetWidth;
@@ -249,8 +249,8 @@
             return;
         }
 
-        var $html = $("html");
-        var lockedClass = namespacify("is-locked");
+        var $html = $('html');
+        var lockedClass = namespacify('is-locked');
         var paddingRight;
         var $body;
 
@@ -258,9 +258,9 @@
             $body = $(document.body);
 
             // Zepto does not support '-=', '+=' in the `css` method
-            paddingRight = parseInt($body.css("padding-right"), 10) + getScrollbarWidth();
+            paddingRight = parseInt($body.css('padding-right'), 10) + getScrollbarWidth();
 
-            $body.css("padding-right", paddingRight + "px");
+            $body.css('padding-right', paddingRight + 'px');
             $html.addClass(lockedClass);
         }
     }
@@ -274,8 +274,8 @@
             return;
         }
 
-        var $html = $("html");
-        var lockedClass = namespacify("is-locked");
+        var $html = $('html');
+        var lockedClass = namespacify('is-locked');
         var paddingRight;
         var $body;
 
@@ -283,9 +283,9 @@
             $body = $(document.body);
 
             // Zepto does not support '-=', '+=' in the `css` method
-            paddingRight = parseInt($body.css("padding-right"), 10) - getScrollbarWidth();
+            paddingRight = parseInt($body.css('padding-right'), 10) - getScrollbarWidth();
 
-            $body.css("padding-right", paddingRight + "px");
+            $body.css('padding-right', paddingRight + 'px');
             $html.removeClass(lockedClass);
         }
     }
@@ -300,11 +300,11 @@
      */
     function setState(instance, state, isSilent, reason) {
 
-        var newState = namespacify("is", state);
-        var allStates = [namespacify("is", STATES.CLOSING),
-                         namespacify("is", STATES.OPENING),
-                         namespacify("is", STATES.CLOSED),
-                         namespacify("is", STATES.OPENED)].join(" ");
+        var newState = namespacify('is', state);
+        var allStates = [namespacify('is', STATES.CLOSING),
+                         namespacify('is', STATES.OPENING),
+                         namespacify('is', STATES.CLOSED),
+                         namespacify('is', STATES.OPENED)].join(' ');
 
         instance.$bg
           .removeClass(allStates)
@@ -354,15 +354,15 @@
             if (--runningAnimationsCount === 0) {
 
                 // Remove event listeners
-                $.each(["$bg", "$overlay", "$wrapper", "$modal"], function (index, elemName) {
-                    instance[elemName].off(ANIMATIONSTART_EVENTS + " " + ANIMATIONEND_EVENTS);
+                $.each(['$bg', '$overlay', '$wrapper', '$modal'], function (index, elemName) {
+                    instance[elemName].off(ANIMATIONSTART_EVENTS + ' ' + ANIMATIONEND_EVENTS);
                 });
 
                 doAfterAnimation();
             }
         };
 
-        $.each(["$bg", "$overlay", "$wrapper", "$modal"], function (index, elemName) {
+        $.each(['$bg', '$overlay', '$wrapper', '$modal'], function (index, elemName) {
             instance[elemName]
               .on(ANIMATIONSTART_EVENTS, handleAnimationStart)
               .on(ANIMATIONEND_EVENTS, handleAnimationEnd);
@@ -379,8 +379,8 @@
         ) {
 
             // Remove event listeners
-            $.each(["$bg", "$overlay", "$wrapper", "$modal"], function (index, elemName) {
-                instance[elemName].off(ANIMATIONSTART_EVENTS + " " + ANIMATIONEND_EVENTS);
+            $.each(['$bg', '$overlay', '$wrapper', '$modal'], function (index, elemName) {
+                instance[elemName].off(ANIMATIONSTART_EVENTS + ' ' + ANIMATIONEND_EVENTS);
             });
 
             doAfterAnimation();
@@ -397,8 +397,8 @@
             return;
         }
 
-        $.each(["$bg", "$overlay", "$wrapper", "$modal"], function (index, elemName) {
-            instance[elemName].off(ANIMATIONSTART_EVENTS + " " + ANIMATIONEND_EVENTS);
+        $.each(['$bg', '$overlay', '$wrapper', '$modal'], function (index, elemName) {
+            instance[elemName].off(ANIMATIONSTART_EVENTS + ' ' + ANIMATIONEND_EVENTS);
         });
 
         instance.$bg.removeClass(instance.settings.modifier);
@@ -422,21 +422,21 @@
         var i;
 
         // Remove spaces before and after delimiters
-        str = str.replace(/\s*:\s*/g, ":").replace(/\s*,\s*/g, ",");
+        str = str.replace(/\s*:\s*/g, ':').replace(/\s*,\s*/g, ',');
 
         // Parse a string
-        arr = str.split(",");
+        arr = str.split(',');
         for (i = 0, len = arr.length; i < len; i++) {
-            arr[i] = arr[i].split(":");
+            arr[i] = arr[i].split(':');
             val = arr[i][1];
 
             // Convert a string value if it is like a boolean
-            if (typeof val === "string" || val instanceof String) {
-                val = val === "true" || (val === "false" ? false : val);
+            if (typeof val === 'string' || val instanceof String) {
+                val = val === 'true' || (val === 'false' ? false : val);
             }
 
             // Convert a string value if it is like a number
-            if (typeof val === "string" || val instanceof String) {
+            if (typeof val === 'string' || val instanceof String) {
                 val = !isNaN(val) ? +val : val;
             }
 
@@ -456,7 +456,7 @@
         var result = NAMESPACE;
 
         for (var i = 0; i < arguments.length; ++i) {
-            result += "-" + arguments[i];
+            result += '-' + arguments[i];
         }
 
         return result;
@@ -468,7 +468,7 @@
      * @listens hashchange
      */
     function handleHashChangeEvent() {
-        var id = location.hash.replace("#", "");
+        var id = location.hash.replace('#', '');
         var instance;
         var $elem;
 
@@ -483,7 +483,7 @@
             // Catch syntax error if your hash is bad
             try {
                 $elem = $(
-                  "[data-" + PLUGIN_NAME + '-id="' + id + '"]'
+                  '[data-' + PLUGIN_NAME + '-id="' + id + '"]'
                 );
             } catch (err) { }
 
@@ -512,41 +512,41 @@
         remodal.index = $[PLUGIN_NAME].lookup.push(remodal) - 1;
         remodal.state = STATES.CLOSED;
 
-        remodal.$overlay = $("." + namespacify("overlay"));
+        remodal.$overlay = $('.' + namespacify('overlay'));
 
         if (!remodal.$overlay.length) {
-            remodal.$overlay = $("<div>").addClass(namespacify("overlay") + " " + namespacify("is", STATES.CLOSED)).hide();
+            remodal.$overlay = $('<div>').addClass(namespacify('overlay') + ' ' + namespacify('is', STATES.CLOSED)).hide();
             $body.append(remodal.$overlay);
         }
 
-        remodal.$bg = $("." + namespacify("bg")).addClass(namespacify("is", STATES.CLOSED));
+        remodal.$bg = $('.' + namespacify('bg')).addClass(namespacify('is', STATES.CLOSED));
 
         remodal.$modal = $modal
           .addClass(
-            NAMESPACE + " " +
-            namespacify("is-initialized") + " " +
-            remodal.settings.modifier + " " +
-            namespacify("is", STATES.CLOSED))
-          .attr("tabindex", "-1");
+            NAMESPACE + ' ' +
+            namespacify('is-initialized') + ' ' +
+            remodal.settings.modifier + ' ' +
+            namespacify('is', STATES.CLOSED))
+          .attr('tabindex', '-1');
 
-        remodal.$wrapper = $("<div>")
+        remodal.$wrapper = $('<div>')
           .addClass(
-            namespacify("wrapper") + " " +
-            remodal.settings.modifier + " " +
-            namespacify("is", STATES.CLOSED))
+            namespacify('wrapper') + ' ' +
+            remodal.settings.modifier + ' ' +
+            namespacify('is', STATES.CLOSED))
           .hide()
           .append(remodal.$modal);
         $body.append(remodal.$wrapper);
 
         // Add the event listener for the close button
-        remodal.$wrapper.on("click." + NAMESPACE, "[data-" + PLUGIN_NAME + '-action="close"]', function (e) {
+        remodal.$wrapper.on('click.' + NAMESPACE, '[data-' + PLUGIN_NAME + '-action="close"]', function (e) {
             e.preventDefault();
 
             remodal.close();
         });
 
         // Add the event listener for the cancel button
-        remodal.$wrapper.on("click." + NAMESPACE, "[data-" + PLUGIN_NAME + '-action="cancel"]', function (e) {
+        remodal.$wrapper.on('click.' + NAMESPACE, '[data-' + PLUGIN_NAME + '-action="cancel"]', function (e) {
             e.preventDefault();
 
             remodal.$modal.trigger(STATE_CHANGE_REASONS.CANCELLATION);
@@ -557,7 +557,7 @@
         });
 
         // Add the event listener for the confirm button
-        remodal.$wrapper.on("click." + NAMESPACE, "[data-" + PLUGIN_NAME + '-action="confirm"]', function (e) {
+        remodal.$wrapper.on('click.' + NAMESPACE, '[data-' + PLUGIN_NAME + '-action="confirm"]', function (e) {
             e.preventDefault();
 
             remodal.$modal.trigger(STATE_CHANGE_REASONS.CONFIRMATION);
@@ -568,10 +568,10 @@
         });
 
         // Add the event listener for the overlay
-        remodal.$wrapper.on("click." + NAMESPACE, function (e) {
+        remodal.$wrapper.on('click.' + NAMESPACE, function (e) {
             var $target = $(e.target);
 
-            if (!$target.hasClass(namespacify("wrapper"))) {
+            if (!$target.hasClass(namespacify('wrapper'))) {
                 return;
             }
 
@@ -594,7 +594,7 @@
             return;
         }
 
-        id = remodal.$modal.attr("data-" + PLUGIN_NAME + "-id");
+        id = remodal.$modal.attr('data-' + PLUGIN_NAME + '-id');
 
         if (id && remodal.settings.hashTracking) {
             scrollTop = $(window).scrollTop();
@@ -639,9 +639,9 @@
 
         if (
           remodal.settings.hashTracking &&
-          remodal.$modal.attr("data-" + PLUGIN_NAME + "-id") === location.hash.substr(1)
+          remodal.$modal.attr('data-' + PLUGIN_NAME + '-id') === location.hash.substr(1)
         ) {
-            location.hash = "";
+            location.hash = '';
             $(window).scrollTop(scrollTop);
         }
 
@@ -690,10 +690,10 @@
         if (instanceCount === 0) {
             this.$overlay.remove();
             this.$bg.removeClass(
-              namespacify("is", STATES.CLOSING) + " " +
-              namespacify("is", STATES.OPENING) + " " +
-              namespacify("is", STATES.CLOSED) + " " +
-              namespacify("is", STATES.OPENED));
+              namespacify('is', STATES.CLOSING) + ' ' +
+              namespacify('is', STATES.OPENING) + ' ' +
+              namespacify('is', STATES.CLOSED) + ' ' +
+              namespacify('is', STATES.OPENED));
         }
     };
 
@@ -725,7 +725,7 @@
 
                 if (
                   instance.settings.hashTracking &&
-                  $elem.attr("data-" + PLUGIN_NAME + "-id") === location.hash.substr(1)
+                  $elem.attr('data-' + PLUGIN_NAME + '-id') === location.hash.substr(1)
                 ) {
                     instance.open();
                 }
@@ -740,12 +740,12 @@
     $(document).ready(function () {
 
         // data-remodal-target opens a modal window with the special Id
-        $(document).on("click", "[data-" + PLUGIN_NAME + "-target]", function (e) {
+        $(document).on('click', '[data-' + PLUGIN_NAME + '-target]', function (e) {
             e.preventDefault();
 
             var elem = e.currentTarget;
-            var id = elem.getAttribute("data-" + PLUGIN_NAME + "-target");
-            var $target = $("[data-" + PLUGIN_NAME + '-id="' + id + '"]');
+            var id = elem.getAttribute('data-' + PLUGIN_NAME + '-target');
+            var $target = $('[data-' + PLUGIN_NAME + '-id="' + id + '"]');
 
             $[PLUGIN_NAME].lookup[$target.data(PLUGIN_NAME)].open();
         });
@@ -753,13 +753,13 @@
         // Auto initialization of modal windows
         // They should have the 'remodal' class attribute
         // Also you can write the `data-remodal-options` attribute to pass params into the modal
-        $(document).find("." + NAMESPACE).each(function (i, container) {
+        $(document).find('.' + NAMESPACE).each(function (i, container) {
             var $container = $(container);
-            var options = $container.data(PLUGIN_NAME + "-options");
+            var options = $container.data(PLUGIN_NAME + '-options');
 
             if (!options) {
                 options = {};
-            } else if (typeof options === "string" || options instanceof String) {
+            } else if (typeof options === 'string' || options instanceof String) {
                 options = parseOptions(options);
             }
 
@@ -767,13 +767,13 @@
         });
 
         // Handles the keydown event
-        $(document).on("keydown." + NAMESPACE, function (e) {
+        $(document).on('keydown.' + NAMESPACE, function (e) {
             if (current && current.settings.closeOnEscape && current.state === STATES.OPENED && e.keyCode === 27) {
                 current.close();
             }
         });
 
         // Handles the hashchange event
-        $(window).on("hashchange." + NAMESPACE, handleHashChangeEvent);
+        $(window).on('hashchange.' + NAMESPACE, handleHashChangeEvent);
     });
 });

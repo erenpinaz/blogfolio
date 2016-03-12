@@ -8,7 +8,7 @@ using Blogfolio.Models.Repositories;
 namespace Blogfolio.Data.Repositories
 {
     /// <summary>
-    ///     Entity framework implementation of <see cref="IRepository{TEntity}" />
+    /// Entity framework implementation of <see cref="IRepository{TEntity}" />
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     internal class Repository<TEntity> : IRepository<TEntity> where TEntity : class
@@ -17,7 +17,7 @@ namespace Blogfolio.Data.Repositories
         private DbSet<TEntity> _set;
 
         /// <summary>
-        ///     Constructor
+        /// Constructor
         /// </summary>
         /// <param name="context"></param>
         internal Repository(BlogfolioContext context)
@@ -26,12 +26,12 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Returns entity set
+        /// Returns entity set
         /// </summary>
         protected DbSet<TEntity> Set => _set ?? (_set = _context.Set<TEntity>());
 
         /// <summary>
-        ///     Returns a list of entity
+        /// Returns a list of entity
         /// </summary>
         /// <returns>List of <see cref="TEntity" /></returns>
         public List<TEntity> GetAll()
@@ -40,7 +40,7 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Asynchronously returns entities
+        /// Asynchronously returns entities
         /// </summary>
         /// <returns>List of <see cref="TEntity" /></returns>
         public Task<List<TEntity>> GetAllAsync()
@@ -49,8 +49,8 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Asynchronously returns entities
-        ///     with cancellation support
+        /// Asynchronously returns entities
+        /// with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns>List of <see cref="TEntity" /></returns>
@@ -60,7 +60,7 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Returns paged entities
+        /// Returns paged entities
         /// </summary>
         /// <param name="skip"></param>
         /// <param name="take"></param>
@@ -71,7 +71,7 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Asynchronously returns paged entities
+        /// Asynchronously returns paged entities
         /// </summary>
         /// <param name="skip"></param>
         /// <param name="take"></param>
@@ -82,8 +82,8 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Asynchronously returns paged entities
-        ///     with cancellation support
+        /// Asynchronously returns paged entities
+        /// with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <param name="skip"></param>
@@ -95,7 +95,7 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Returns entity
+        /// Returns entity
         /// </summary>
         /// <param name="id"></param>
         /// <returns>A <see cref="TEntity" /></returns>
@@ -105,7 +105,7 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Asynchronously returns entity
+        /// Asynchronously returns entity
         /// </summary>
         /// <param name="id"></param>
         /// <returns>A <see cref="TEntity" /></returns>
@@ -115,8 +115,8 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Asynchronously returns entity
-        ///     with cancellation support
+        /// Asynchronously returns entity
+        /// with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <param name="id"></param>
@@ -127,7 +127,7 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Creates new entity record
+        /// Creates new entity record
         /// </summary>
         /// <param name="entity"></param>
         public void Add(TEntity entity)
@@ -136,7 +136,7 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Updates an entity record
+        /// Updates an entity record
         /// </summary>
         /// <param name="entity"></param>
         public void Update(TEntity entity)
@@ -151,7 +151,7 @@ namespace Blogfolio.Data.Repositories
         }
 
         /// <summary>
-        ///     Deletes an entity record
+        /// Deletes an entity record
         /// </summary>
         /// <param name="entity"></param>
         public void Remove(TEntity entity)

@@ -12,7 +12,7 @@ namespace ErenPinaz.Common.Helpers
         private const string IdsToReuseKey = "__htmlPrefixScopeExtensions_IdsToReuse_";
 
         /// <summary>
-        ///     Creates dynamic form fields in runtime with different id's
+        /// Creates dynamic form fields in runtime with different id's
         /// </summary>
         /// <param name="html"></param>
         /// <param name="collectionName"></param>

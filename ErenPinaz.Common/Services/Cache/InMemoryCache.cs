@@ -8,14 +8,12 @@ namespace ErenPinaz.Common.Services.Cache
     public class InMemoryCache : ICacheService
     {
         /// <summary>
-        ///     Creates or retreieves <see cref="MemoryCache" /> item
+        /// Creates or retreieves <see cref="MemoryCache"/> item
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="cacheKey"></param>
         /// <param name="getItemCallback"></param>
-        /// <returns>
-        ///     <see cref="T" />
-        /// </returns>
+        /// <returns><see cref="T"/></returns>
         public T GetOrSet<T>(string cacheKey, Func<T> getItemCallback) where T : class
         {
             var item = MemoryCache.Default.Get(cacheKey) as T;

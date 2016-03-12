@@ -9,12 +9,12 @@ using Blogfolio.Models.Repositories.Portfolio;
 namespace Blogfolio.Data.Repositories.Portfolio
 {
     /// <summary>
-    ///     Entity framework implementation of <see cref="IProjectRepository" />
+    /// Entity framework implementation of <see cref="IProjectRepository" />
     /// </summary>
     internal class ProjectRepository : Repository<Project>, IProjectRepository
     {
         /// <summary>
-        ///     Constructor
+        /// Constructor
         /// </summary>
         /// <param name="context"></param>
         internal ProjectRepository(BlogfolioContext context)
@@ -23,7 +23,7 @@ namespace Blogfolio.Data.Repositories.Portfolio
         }
 
         /// <summary>
-        ///     Returns a list of public projects
+        /// Returns a list of public projects
         /// </summary>
         /// <param name="count"></param>
         /// <returns>List of public <see cref="Project" /></returns>
@@ -38,7 +38,7 @@ namespace Blogfolio.Data.Repositories.Portfolio
         }
 
         /// <summary>
-        ///     Asynchronously returns a list of public projects
+        /// Asynchronously returns a list of public projects
         /// </summary>
         /// <param name="count"></param>
         /// <returns>List of public <see cref="Project" /></returns>
@@ -53,8 +53,8 @@ namespace Blogfolio.Data.Repositories.Portfolio
         }
 
         /// <summary>
-        ///     Asynchronously returns a list of public projects
-        ///     with cancellation support
+        /// Asynchronously returns a list of public projects
+        /// with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <param name="count"></param>
@@ -70,7 +70,7 @@ namespace Blogfolio.Data.Repositories.Portfolio
         }
 
         /// <summary>
-        ///     Returns single public project
+        /// Returns single public project
         /// </summary>
         /// <param name="slug"></param>
         /// <returns>A public <see cref="Project" /></returns>
@@ -82,7 +82,7 @@ namespace Blogfolio.Data.Repositories.Portfolio
         }
 
         /// <summary>
-        ///     Asynchronously returns single public project
+        /// Asynchronously returns single public project
         /// </summary>
         /// <param name="slug"></param>
         /// <returns>A public <see cref="Project" /></returns>
@@ -94,8 +94,8 @@ namespace Blogfolio.Data.Repositories.Portfolio
         }
 
         /// <summary>
-        ///     Asynchronously returns single public project
-        ///     with cancellation support
+        /// Asynchronously returns single public project
+        /// with cancellation support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <param name="slug"></param>

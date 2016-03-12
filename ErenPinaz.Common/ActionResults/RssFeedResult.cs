@@ -7,7 +7,7 @@ namespace ErenPinaz.Common.ActionResults
     public class RssFeedResult : FeedResult
     {
         /// <summary>
-        ///     Action result for serving rss formatted feeds
+        /// Action result for serving rss formatted feeds
         /// </summary>
         /// <param name="feed"></param>
         public RssFeedResult(SyndicationFeed feed)

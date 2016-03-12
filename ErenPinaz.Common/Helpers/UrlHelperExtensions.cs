@@ -7,7 +7,7 @@ namespace ErenPinaz.Common.Helpers
     public static class UrlHelperExtensions
     {
         /// <summary>
-        ///     Returns a full qualified action URL
+        /// Returns a full qualified action URL
         /// </summary>
         public static string QualifiedAction(this UrlHelper url, string actionName, string controllerName,
             object routeValues = null)
@@ -16,7 +16,7 @@ namespace ErenPinaz.Common.Helpers
         }
 
         /// <summary>
-        ///     Returns a full qualified route URL
+        /// Returns a full qualified route URL
         /// </summary>
         public static string QualifiedRoute(this UrlHelper url, string routeName,
             object routeValues = null)

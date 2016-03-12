@@ -8,7 +8,7 @@ namespace ErenPinaz.Common.SEO.Sitemap
     public interface ISitemapGenerator
     {
         /// <summary>
-        ///     Generates an xml sitemap file
+        /// Generates an xml sitemap file
         /// </summary>
         XDocument GenerateSiteMap(IEnumerable<SitemapItem> items);
     }

@@ -6,9 +6,9 @@ using System.Web.Mvc;
 namespace Blogfolio.Web.Attributes
 {
     /// <summary>
-    ///     Checks the setup status value from the web.config
-    ///     file and prevents access to the main app if it is
-    ///     in progress (value: 0)
+    /// Checks the setup status value from the web.config
+    /// file and prevents access to the main app if it is
+    /// in progress (value: 0)
     /// </summary>
     public class CheckSetupAttribute : ActionFilterAttribute
     {

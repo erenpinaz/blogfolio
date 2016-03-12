@@ -120,7 +120,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(m => m.ReCaptchaKey, new {@class = "col-sm-2 control-label"})
+            @Html.LabelFor(m => m.ReCaptchaKey, new { @class = "col-sm-2 control-label" })
             <div class="col-sm-4">
                 @Html.EditorFor(m => m.ReCaptchaKey, new {htmlAttributes = new {@class = "form-control", placeholder = Html.DisplayNameFor(m => m.ReCaptchaKey)}})
                 <p class="form-info">
@@ -128,9 +128,9 @@
                 </p>
             </div>
 
-            @Html.LabelFor(m => m.ReCaptchaSecret, new {@class = "col-sm-2 control-label"})
+            @Html.LabelFor(m => m.ReCaptchaSecret, new { @class = "col-sm-2 control-label" })
             <div class="col-sm-4">
-                @Html.EditorFor(m => m.ReCaptchaSecret, new {htmlAttributes = new {@class = "form-control", placeholder = Html.DisplayNameFor(m => m.ReCaptchaSecret)}})
+                @Html.EditorFor(m => m.ReCaptchaSecret, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.ReCaptchaSecret) } })
                 <p class="form-info">
                     @Html.DisplayDescriptionFor(m => m.ReCaptchaSecret)
                 </p>

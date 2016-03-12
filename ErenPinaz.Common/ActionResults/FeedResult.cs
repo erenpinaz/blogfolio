@@ -10,7 +10,7 @@ namespace ErenPinaz.Common.ActionResults
     public class FeedResult : ActionResult
     {
         /// <summary>
-        ///     Base result for atom/rss feeds
+        /// Base result for atom/rss feeds
         /// </summary>
         /// <param name="formatter"></param>
         /// <param name="contentType"></param>
@@ -22,17 +22,17 @@ namespace ErenPinaz.Common.ActionResults
         }
 
         /// <summary>
-        ///     Output formatter (atom/rss)
+        /// Output formatter (atom/rss)
         /// </summary>
         public SyndicationFeedFormatter Formatter { get; }
 
         /// <summary>
-        ///     Output content type
+        /// Output content type
         /// </summary>
         public string ContentType { get; }
 
         /// <summary>
-        ///     Output encoding
+        /// Output encoding
         /// </summary>
         public Encoding Encoding { get; set; }
 

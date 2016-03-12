@@ -11,12 +11,12 @@ using Blogfolio.Models.Portfolio;
 namespace Blogfolio.Data
 {
     /// <summary>
-    ///     Creates the database
+    /// Creates the database
     /// </summary>
     internal class BlogfolioContext : DbContext
     {
         /// <summary>
-        ///     Public constructor for migrations
+        /// Public constructor for migrations
         /// </summary>
         public BlogfolioContext()
             : base("BlogfolioContext")
@@ -24,7 +24,7 @@ namespace Blogfolio.Data
         }
 
         /// <summary>
-        ///     Constructor for dependency injector
+        /// Constructor for dependency injector
         /// </summary>
         /// <param name="nameOrConnectionString"></param>
         internal BlogfolioContext(string nameOrConnectionString)
@@ -49,7 +49,7 @@ namespace Blogfolio.Data
         internal DbSet<Media> Medias { get; set; }
 
         /// <summary>
-        ///     Configures values & table relationships
+        /// Configures values & table relationships
         /// </summary>
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

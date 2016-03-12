@@ -14,7 +14,7 @@ namespace ErenPinaz.Common.ActionResults
         private readonly ISitemapGenerator _generator;
 
         /// <summary>
-        ///     An action result for generating XML sitemap
+        /// An action result for generating XML sitemap
         /// </summary>
         /// <param name="items"></param>
         public SitemapResult(IEnumerable<SitemapItem> items) : this(items, new SitemapGenerator())
@@ -22,7 +22,7 @@ namespace ErenPinaz.Common.ActionResults
         }
 
         /// <summary>
-        ///     An action result for generating XML sitemap
+        /// An action result for generating XML sitemap
         /// </summary>
         /// <param name="items"></param>
         /// <param name="generator"></param>
