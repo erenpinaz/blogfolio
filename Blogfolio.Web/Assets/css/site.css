@@ -76,7 +76,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", Arial, Helvetica, Tahoma, sans-serif;
+  font-family: "Source Sans Pro", Arial, Helvetica, Tahoma, sans-serif;
   font-weight: 700;
   line-height: 1.1;
   font-style: normal;
@@ -160,7 +160,7 @@ h1.page-header {
   font-style: italic;
 }
 img.loading {
-  width: 20px;
+  width: 30px;
   vertical-align: sub;
   margin-right: 10px;
 }
@@ -236,6 +236,7 @@ ul.pager li.disabled a:focus {
   margin-top: 25px;
 }
 #header .header-inner .site-information .site-title {
+  font-size: 36px;
   margin-bottom: 8px;
   text-transform: uppercase;
 }
@@ -311,8 +312,8 @@ ul.pager li.disabled a:focus {
   display: block;
   background: rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid #333333;
-  font-family: "Open Sans", Arial, Helvetica, Tahoma, sans-serif;
-  font-weight: 300;
+  font-family: "Source Sans Pro", Arial, Helvetica, Tahoma, sans-serif;
+  font-weight: 300 !important;
   font-size: 21px;
   color: #ddd;
   line-height: 2;
@@ -412,8 +413,7 @@ ul.pager li.disabled a:focus {
   content: "\00b7";
 }
 .blog .post .post-content pre {
-  background: #eeeeee;
-  padding: 20px;
+  border: 1px solid #eeeeee;
 }
 .blog .post .post-content iframe {
   border: none;

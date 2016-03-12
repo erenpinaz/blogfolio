@@ -56,12 +56,6 @@ $(function () {
         });
     }
 
-    // Syntax Highlighter
-    SyntaxHighlighter.defaults["auto-links"] = false;
-    SyntaxHighlighter.defaults["pad-line-numbers"] = false;
-    SyntaxHighlighter.defaults["toolbar"] = false;
-    SyntaxHighlighter.all();
-
     // Animate site logo when in site home
     var $logo = $(".logo");
     if (window.location.pathname == "/" && $logo.length > 0) {

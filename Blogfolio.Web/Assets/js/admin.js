@@ -23,7 +23,7 @@ $(function () {
         });
     }
 
-    // TinyMCE Post section
+    // TinyMCE Post configuration
     var configurePostBodyEditor = function () {
         var $postBody = $("textarea[data-tinymce='post']");
         if ($postBody.length > 0) {
@@ -31,22 +31,21 @@ $(function () {
             tinymce.init({
                 selector: "textarea[data-tinymce='post']",
                 autosave_interval: "20s",
-                image_dimensions: false,
                 relative_urls: false,
                 entity_encoding: "raw",
                 min_height: 500,
                 plugins: [
                     "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen autosave",
+                    "searchreplace visualblocks code codesample fullscreen autosave",
                     "insertdatetime media table contextmenu paste"
                 ],
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image codesample"
             });
         }
     };
     configurePostBodyEditor();
 
-    // TinyMCE Project section
+    // TinyMCE Project configuration
     var configureProjectBodyEditor = function () {
         var $projectBody = $("textarea[data-tinymce='project']");
         if ($projectBody.length > 0) {
@@ -58,7 +57,7 @@ $(function () {
                 min_height: 500,
                 plugins: [
                     "advlist autolink lists link charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen autosave",
+                    "searchreplace visualblocks fullscreen autosave",
                     "insertdatetime contextmenu paste"
                 ],
                 toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link"

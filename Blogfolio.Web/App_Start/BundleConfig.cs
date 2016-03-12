@@ -14,8 +14,7 @@ namespace Blogfolio.Web
                 .Include("~/assets/css/appicons.css")
                 .Include("~/assets/css/animate.css")
                 .Include("~/assets/css/remodal*")
-                .Include("~/assets/css/shcore.css")
-                .Include("~/assets/css/shthemedefault.css")
+                .Include("~/assets/css/prism.css")
                 .Include("~/assets/css/site.css"));
 
             // Site script bundle
@@ -27,8 +26,7 @@ namespace Blogfolio.Web
                 .Include("~/assets/js/remodal.js")
                 .Include("~/assets/js/masonry.js")
                 .Include("~/assets/js/imagesloaded.js")
-                .Include("~/assets/js/syntaxhighlighter/shCore.js")
-                .IncludeDirectory("~/assets/js/syntaxhighlighter", "shBrush*")
+                .Include("~/assets/js/prism.js")
                 .Include("~/assets/js/site.js"));
 
             #endregion

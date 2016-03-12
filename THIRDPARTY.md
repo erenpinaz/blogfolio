@@ -79,13 +79,13 @@ License: MIT([http://opensource.org/licenses/mit-license.php](http://opensource.
 
 Homepage: [http://vodkabears.github.io/remodal/](http://vodkabears.github.io/remodal/)
 
-## Syntax Highlighter 
+## Prism 
 
-Author:	Alex Gorbatchev
+Author:	Lea Verou
 
 License: MIT([http://opensource.org/licenses/mit-license.php](http://opensource.org/licenses/mit-license.php))
 
-Homepage: [http://alexgorbatchev.com/SyntaxHighlighter/](http://alexgorbatchev.com/SyntaxHighlighter/)
+Homepage: [http://prismjs.com/](http://prismjs.com/)
 
 ## Masonry
 
