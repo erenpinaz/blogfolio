@@ -48,7 +48,7 @@ namespace Blogfolio.Web.Areas.Admin.ViewModels
         [DataType(DataType.Text)]
         [Display(Name = "Disqus Shortname",
             Description =
-                "Register your site at <a href=\"https://disqus.com/admin/signup\" target=\"_blank\" > Disqus</a> to enable comments (Optional)"
+                "Register your site at <a href=\"https://disqus.com/admin/signup\" target=\"_blank\"> Disqus</a> to enable comments (Optional)"
             )]
         public string DisqusShortname { get; set; }
 
@@ -64,9 +64,25 @@ namespace Blogfolio.Web.Areas.Admin.ViewModels
         [DataType(DataType.Text)]
         [Display(Name = "Google Analytics Key",
             Description =
-                "Register your site at <a href=\"https://www.google.com/analytics\" > Google Analytics</a> to enable site analysis (Optional)"
+                "Register your site at <a href=\"https://www.google.com/analytics\"> Google Analytics</a> to enable site analysis (Optional)"
             )]
         public string GoogleAnalyticsKey { get; set; }
+
+        [StringLength(128, MinimumLength = 3)]
+        [DataType(DataType.Text)]
+        [Display(Name = "ReCAPTCHA Key",
+            Description =
+                "Register your site at <a href=\"https://www.google.com/recaptcha/admin\"> Google reCAPTCHA</a> to enable captcha form validation (Optional)"
+            )]
+        public string ReCaptchaKey { get; set; }
+
+        [StringLength(128, MinimumLength = 3)]
+        [DataType(DataType.Text)]
+        [Display(Name = "ReCAPTCHA Secret",
+            Description =
+                "Register your site at <a href=\"https://www.google.com/recaptcha/admin\"> Google reCAPTCHA</a> to enable captcha form validation (Optional)"
+            )]
+        public string ReCaptchaSecret { get; set; }
 
         [Required]
         [Range(1, 20)]

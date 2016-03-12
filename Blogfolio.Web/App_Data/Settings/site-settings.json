@@ -9,6 +9,8 @@
   "DisqusShortname": null,
   "ShareaholicKey": null,
   "GoogleAnalyticsKey": null,
+  "ReCaptchaKey": null,
+  "ReCaptchaSecret": null,
   "PageSize": 3,
   "FeedSize": 5,
   "ContactEmail": "contact@blogfolio.com"
