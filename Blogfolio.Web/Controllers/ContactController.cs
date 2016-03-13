@@ -20,8 +20,7 @@ namespace Blogfolio.Web.Controllers
         private readonly IEmailService _emailService;
         private readonly ICaptchaService _captchaService;
 
-        public ContactController(ISettingsService settingsService, IEmailService emailService,
-            ICaptchaService captchaService)
+        public ContactController(ISettingsService settingsService, IEmailService emailService, ICaptchaService captchaService)
             : base(settingsService)
         {
             var siteSettings = SettingsService.GetByName<SiteSettingsEditModel>("site-settings");
@@ -45,40 +44,32 @@ namespace Blogfolio.Web.Controllers
         public async Task<ActionResult> SendMessage(ContactEditModel model)
         {
             if (!ModelState.IsValid)
-                return Json(new {success = false, message = "Please correctly fill all the required fields."});
+                return Json(new { success = false, message = "Please correctly fill all the required fields." });
 
             if (!string.IsNullOrWhiteSpace(_recaptchaKey) && !string.IsNullOrWhiteSpace(_recaptchaSecret))
             {
-                var captchaResponse =
-                    await _captchaService.ValidateAsync(_recaptchaSecret, Request.Form["g-recaptcha-response"]);
+                var captchaResponse = await _captchaService.ValidateAsync(_recaptchaSecret, Request.Form["g-recaptcha-response"]);
                 if (!captchaResponse.Success)
                 {
-                    return
-                        Json(
-                            new
-                            {
-                                success = false,
-                                message =
-                                    string.Format("Captcha validation failed. ({0})", captchaResponse.ErrorCodes[0])
-                            });
+                    return Json(new { success = false, message = string.Format("Captcha validation failed. ({0})", captchaResponse.ErrorCodes[0]) });
                 }
             }
 
             var mailMessage = new MailMessage()
             {
                 From = new MailAddress(model.Email, model.Name),
-                To = {_contactEmail},
+                To = { _contactEmail },
                 Subject = model.Subject,
                 Body = model.Message
             };
             try
             {
                 await _emailService.SendAsync(mailMessage);
-                return Json(new {success = true, message = "Your message has been successfully sent."});
+                return Json(new { success = true, message = "Your message has been successfully sent." });
             }
             catch
             {
-                return Json(new {success = false, message = "An error occurred while sending your mail."});
+                return Json(new { success = false, message = "An error occurred while sending your mail." });
             }
             finally
             {

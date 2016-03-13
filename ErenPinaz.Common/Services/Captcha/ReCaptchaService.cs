@@ -12,8 +12,7 @@ namespace ErenPinaz.Common.Services.Captcha
             using (var client = new WebClient())
             {
                 var clientResponse = await client.DownloadStringTaskAsync(
-                    new Uri(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}",
-                        secret, response)));
+                    new Uri(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response)));
 
                 return JsonConvert.DeserializeObject<ReCaptchaResponse>(clientResponse);
             }
