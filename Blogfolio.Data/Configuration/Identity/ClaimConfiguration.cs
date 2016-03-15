@@ -7,7 +7,7 @@ namespace Blogfolio.Data.Configuration.Identity
     internal class ClaimConfiguration : EntityTypeConfiguration<Claim>
     {
         /// <summary>
-        /// Fluent API configuration for the Claim table.
+        /// Fluent API configuration for the Claim table
         /// </summary>
         internal ClaimConfiguration()
         {

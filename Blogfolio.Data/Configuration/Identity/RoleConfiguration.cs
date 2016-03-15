@@ -6,7 +6,7 @@ namespace Blogfolio.Data.Configuration.Identity
     internal class RoleConfiguration : EntityTypeConfiguration<Role>
     {
         /// <summary>
-        /// Fluent API configuration for the Role table.
+        /// Fluent API configuration for the Role table
         /// </summary>
         internal RoleConfiguration()
         {
